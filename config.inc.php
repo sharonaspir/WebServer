@@ -3,8 +3,8 @@
     // These variables define the connection information for your MySQL database 
 	// This is also for the Xampp example,  if you are hosting on your own server,
 	//make the necessary changes (mybringback_travis, etc.)
-    $username = "ENTER USER NAME HERE"; 
-    $password = "ENTER PASSWORD HERE"; 
+    $username = "MyMantraAdminUsr"; 
+    $password = "CatIAte4Long"; 
     $host = "localhost"; 
     $dbname = "webservice"; 
 

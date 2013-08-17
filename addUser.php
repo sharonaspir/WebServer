@@ -6,10 +6,15 @@ require("config.inc.php");
 if (!empty($_POST)) {
     //If not all values are set
     if (empty($_POST['id']) || empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])|| empty($_POST['education']) || empty($_POST['newage']) || empty($_POST['health']) || empty($_POST['sport'])) {
-			
-	    // Create some data that will be the JSON response 
+		$msg = "Please Enter values to all fields.";
+		
+		if (!empty($_POST['id']) || !empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['email'])|| !empty($_POST['education']) || !empty($_POST['newage']) || !empty($_POST['health']) || !empty($_POST['sport'])) {
+			$msg = "Please Enter values to all fields. (got some info).";
+		}
+		
+	    // Create some data that will be the JSON response		
 	    $response["success"] = 0;
-	    $response["message"] = "Please Enter values to all fields.";
+	    $response["message"] = $msg;
 
         die(json_encode($response));
     }
@@ -52,8 +57,8 @@ if (!empty($_POST)) {
     $query_params = array(
         ':id' => $_POST['id'],
         ':name' => $_POST['username'],
-		':mail' => $_POST['password'],
-		':pass' => $_POST['email'],
+		':mail' => $_POST['email'],
+		':pass' => $_POST['password'],
 		':edu' => $_POST['education'],
 		':newage' => $_POST['newage'],
 		':sport' => $_POST['sport'],
