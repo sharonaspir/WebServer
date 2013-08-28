@@ -15,11 +15,17 @@ if (!empty($_POST)) {
 		$data = $stmt->fetch();
 		$response["success"] = 1;
 		$response["message"] = "";
+		
+		$msg = "";
+				
         do	{							
-				$response["message"] = $response["message"] . " , " . json_encode($data);			
+				$msg = $msg . " , " . json_encode($data);
 			} 
 			while ($data = $stmt->fetch());
 			
+		$response["success"] = 1;
+		$response["message"] = $msg;
+		
 		die(json_encode($response));		
     }
     catch (PDOException $ex) {        
@@ -32,7 +38,7 @@ if (!empty($_POST)) {
 ?>
 	<h1>Get All Mantras.</h1> 
 	<form action="getAllMantras.php" method="post"> 	
-		<input type="text" name="email" value="">
+		<input type="text" name="tmp" value="">
 	    <input type="submit" value="get mantra" /> 		
 	</form>
 	<?php
